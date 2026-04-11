@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANBAN</title>
+</head>
+<body>
+    <diV class="app-container">
+        <header class="boader-header">
+            <h1>Task Kanban</h1>
+            <span>Tasks: <span id="task-counter">0</span></span>
+            <select id="priority-filter">
+                <label for="priority-filter">priority-filter:</label>
+                <option value="all">all</option>
+                <option value="high">high</option>
+                <option value="medium">medium</option>
+                <option value="low">low</option>
+            </select>
+
+        </header>
+    </diV>
+    <div class="cloumn">
+        <h2>To Do</h2>
+        <ul id="todoList" class="task-list"></ul>
+        <button class="add-btn" data-column="todo">+ Add Task</button>
+    </div>
+    <div class="cloumn">
+        <h2>In Progress</h2>
+        <ul id="inProgressList" class="task-list"></ul>
+        <button class="add-btn" data-column="inprogress">+ Add Task</button>
+    </div>
+    <div class="cloumn">
+        <h2>Done</h2>
+        <ul id="doneList" class="task-list"></ul>
+        <button class="add-btn" data-column="done">+ Add Task</button>
+    </div>
+</body>
+</html>

@@ -3,57 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KANBAN</title>
+    <title>Kanban Task Board</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <diV class="app-container">
-        <header class="boader-header">
-            <h1>Task Kanban</h1>
+    <div class="app-container">
+        <header class="board-header">
+            <h1>📋 Task Kanban</h1>
             <span>Tasks: <span id="task-counter">0</span></span>
-            <select id="priority-filter">
-                <label for="priority-filter">priority-filter:</label>
-                <option value="all">all</option>
-                <option value="high">high</option>
-                <option value="medium">medium</option>
-                <option value="low">low</option>
-            </select>
-
-        </header>
-    <div class="columns-container">
-    <div class="cloumn">
-        <h2>To Do</h2>
-        <ul id="todoList" class="task-list"></ul>
-        <button class="add-btn" data-column="todo">+ Add Task</button>
-    </div>
-    <div class="cloumn">
-        <h2>In Progress</h2>
-        <ul id="inProgressList" class="task-list"></ul>
-        <button class="add-btn" data-column="inprogress">+ Add Task</button>
-    </div>
-    <div class="cloumn">
-        <h2>Done</h2>
-        <ul id="doneList" class="task-list"></ul>
-        <button class="add-btn" data-column="done">+ Add Task</button>
-        <button id="clearDoneBtn" class="clear-btn">clean all</button>
-    </div>
-    <div id="taskModal" class="modal">
-         <div class="modal-content">
-            <h3>add/edit task</h3>
-            <input type="text" id="taskTitle" placeholder="task title" required>
-            <textarea id="taskDesc"placeholder="task description" row="5"></textarea>
-            <select id="taskPriority">
-                <option value="high">high</option>
-                <option value="medium">medium</option>
-                <option value="low">low</option>
-            </select>
-            <input type="date" id="taskDuedate">
-            <div class="modal-buttons">
-                <button id="saveTaskBtn">save</button>
-                <button id="cancelModalBtn">cancel</button>
+            <div class="filter-control">
+                <label for="priority-filter">Priority Filter:</label>
+                <select id="priority-filter">
+                    <option value="all">All</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
             </div>
-         </div>
+        </header>
 
+        <div class="columns-container">
+            <div class="column">
+                <h2>📝 To Do</h2>
+                <ul id="todoList" class="task-list"></ul>
+                <button class="add-btn" data-column="todo">+ Add Task</button>
+            </div>
+
+            <div class="column">
+                <h2>⚙️ In Progress</h2>
+                <ul id="inProgressList" class="task-list"></ul>
+                <button class="add-btn" data-column="inprogress">+ Add Task</button>
+            </div>
+
+            <div class="column">
+                <h2>✅ Done</h2>
+                <ul id="doneList" class="task-list"></ul>
+                <button class="add-btn" data-column="done">+ Add Task</button>
+                <button id="clearDoneBtn" class="clear-btn">Clear All</button>
+            </div>
+        </div>
     </div>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Add/Edit Task</h3>
+            <input type="text" id="taskTitle" placeholder="Task Title" required>
+            <textarea id="taskDesc" placeholder="Task Description" rows="3"></textarea>
+            <select id="taskPriority">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <input type="date" id="taskDueDate">
+            <div class="modal-buttons">
+                <button id="saveTaskBtn">Save</button>
+                <button id="cancelModalBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <script src="taskmanager.js"></script>
 </body>
 </html>

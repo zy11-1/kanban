@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: system-ui, -apple-system, sans-serif;
     background: #f0f2f5;
@@ -13,6 +14,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .board-header {
     background: white;
     padding: 20px;
@@ -23,11 +25,45 @@ body {
     align-items: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+.controls label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.controls select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.board-columns {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.column {
+    flex: 1;
+    background: #ebecf0;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+.column h2 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
 .task-list {
     list-style: none;
-    min-height: 400px;
+    min-height: 100px;
     margin-bottom: 16px;
 }
+
 .add-btn {
     width: 100%;
     padding: 10px;
@@ -36,6 +72,7 @@ body {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .add-btn:hover {
@@ -51,6 +88,11 @@ body {
     border-radius: 6px;
     padding: 8px;
     cursor: pointer;
+    font-size: 14px;
+}
+
+.clear-btn:hover {
+    background: #c82333;
 }
 
 .task-card {
@@ -59,6 +101,7 @@ body {
     padding: 12px;
     margin-bottom: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .task-card:hover {
@@ -69,11 +112,19 @@ body {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 8px;
+    cursor: pointer;
 }
 
 .task-desc {
     font-size: 14px;
     color: #666;
+    margin-bottom: 8px;
+    white-space: pre-wrap;
+}
+
+.task-due {
+    font-size: 12px;
+    color: #888;
     margin-bottom: 8px;
 }
 
@@ -83,6 +134,7 @@ body {
     border-radius: 4px;
     font-size: 12px;
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .priority-high {
@@ -112,6 +164,7 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    flex: 1;
 }
 
 .edit-btn {
@@ -119,10 +172,19 @@ body {
     color: white;
 }
 
+.edit-btn:hover {
+    background: #138496;
+}
+
 .delete-btn {
     background: #dc3545;
     color: white;
 }
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
 .task-card.is-hidden {
     display: none;
 }
@@ -137,6 +199,7 @@ body {
         transform: translateY(-10px);
     }
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -146,12 +209,84 @@ body {
     height: 100%;
     background: rgba(0,0,0,0.5);
     z-index: 1000;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background: white;
-    width: 500px;
-    margin: 100px auto;
+    width: 90%;
+    max-width: 500px;
     padding: 24px;
     border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#saveTaskBtn {
+    background: #007bff;
+    color: white;
+}
+
+#saveTaskBtn:hover {
+    background: #0056b3;
+}
+
+#cancelModalBtn {
+    background: #6c757d;
+    color: white;
+}
+
+#cancelModalBtn:hover {
+    background: #5a6268;
+}
+
+.inline-input {
+    width: 100%;
+    padding: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    outline: none;
 }
